@@ -1,0 +1,31 @@
+To fix the issue, ensure that you either:
+
+1. **Remove `align-items: center` and `justify-content: center`**: These properties can interact unexpectedly with `flex-grow`.
+2. **Specify widths**: Instead of relying on `flex-grow` to distribute space, explicitly set the width for each item. This approach is more predictable and avoids issues.  For example: 
+
+```css
+.container {
+  display: flex;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin: 10px;
+}
+
+.item:nth-child(even) {
+  background-color: red;
+}
+```
+3. **Use `flex-basis`**: `flex-basis` provides more predictable control over the initial size of the items and can be preferred over `width` in certain cases.  Example:
+
+```css
+.item {
+  flex-basis: 100px; /* initial size */
+  height: 100px;
+  background-color: blue;
+  margin: 10px;
+}
+```
