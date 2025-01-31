@@ -1,0 +1,19 @@
+The following CSS code causes an unexpected layout issue in certain browsers:  ```css
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin: 10px;
+}
+
+.item:nth-child(even) {
+  background-color: red;
+  flex-grow: 1;
+}
+```  The even-numbered items unexpectedly stretch to fill the available space, even though only the `flex-grow` property is modified. This is an uncommon bug caused by the interaction between `flex-grow`, `align-items:center`, and `justify-content:center`. In some browsers, this causes unexpected distribution of space.
